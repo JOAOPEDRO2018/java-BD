@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import model.Produtos;
 import model.produtosBD;
 
-/**
- *
- * @author joaop
- */
 public class ExcluirProduto extends javax.swing.JFrame {
 
     Produtos comprador;
@@ -100,11 +91,6 @@ public class ExcluirProduto extends javax.swing.JFrame {
         comprador = new Produtos(ref);
         compradorCadastro = new produtosBD();
         compradorCadastro.excluirProduto(comprador); 
-        
-
-
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
