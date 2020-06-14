@@ -1,6 +1,6 @@
 package model;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
+//import com.mysql.cj.xdevapi.PreparableStatement;
 import dots.ConexaoBD;
 import java.util.List;
 import java.sql.PreparedStatement;

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package view;
 
 import java.util.List;
@@ -11,17 +5,11 @@ import javax.swing.table.DefaultTableModel;
 import model.Cliente;
 import model.ClienteBD;
 
-/**
- *
- * @author joaop
- */
-public class lista extends javax.swing.JFrame {
+public class Lista extends javax.swing.JFrame {
 
-    /** Creates new form lista */
-    public lista() {
+    public Lista() {
         initComponents();
         listar();
-        
         
         
     }
@@ -30,7 +18,7 @@ public class lista extends javax.swing.JFrame {
         cliente.listarClientes();
         //preencher a tabela
         DefaultTableModel modelo = (DefaultTableModel)tabelaAluno.getModel();
-        //criando a lista
+        //criando a Lista
         List<Cliente> listaCliente = cliente.listarClientes();
         for (Cliente a: listaCliente){
             modelo.addRow(new Object[]{
@@ -49,6 +37,7 @@ public class lista extends javax.swing.JFrame {
         tabelaAluno = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         tabelaAluno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,7 +74,8 @@ public class lista extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(426, 309));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -99,26 +89,27 @@ public class lista extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new lista().setVisible(true);
+                new Lista().setVisible(true);
             }
         });
     }
