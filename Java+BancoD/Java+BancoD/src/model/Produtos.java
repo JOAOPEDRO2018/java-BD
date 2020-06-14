@@ -13,10 +13,14 @@ public class Produtos {
 
     public Produtos() {
     }
-    
-  
 
-    
+    public Produtos(int idprod, String nome, double preco, Fornecedor fornecedor) {
+        this.idprod = idprod;
+        this.nome = nome;
+        this.preco = preco;
+        this.fornecedor = fornecedor;
+    }
+       
     
     
     

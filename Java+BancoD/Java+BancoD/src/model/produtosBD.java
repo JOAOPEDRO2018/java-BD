@@ -18,15 +18,6 @@ import javax.swing.JOptionPane;
 public class produtosBD {
 ConexaoBD conectar = new ConexaoBD();
 
-
-
-
-
-
-
-
-
-
     public List<Produtos> listarProdutos(){
         conectar.conectarComDB();
         List<Produtos> pro = new ArrayList<>();
@@ -47,7 +38,6 @@ ConexaoBD conectar = new ConexaoBD();
             a.setIdprod(rs.getInt("idpro"));
             pro.add(a);
             
-            
         }
         
     } catch (SQLException ex) {
@@ -55,7 +45,6 @@ ConexaoBD conectar = new ConexaoBD();
     }
     return pro;
     }
-    
     
     public void excluirProduto(Produtos p){
         //conectar com o BD
@@ -74,5 +63,32 @@ ConexaoBD conectar = new ConexaoBD();
         
     }
     
+    
+    
+    public void addProduto(Produtos p){
+        //conecto com o banco
+        conectar.conectarComDB();        
+        //preparando a consulta em SQL
+        //!!!!O SEGREDO ESTA AQUI!!!!
+        String sql = "insert into fornecedor (idpro, nomeprod, preco,fk_Idfor) values(?, ?, ?, ?)";
+        //convertendo String em consulta
+        PreparedStatement pst;
+        try {
+            pst = conectar.conexao.prepareStatement(sql);
+            //substituindo os campos em ? ?
+            pst.setInt(1, p.getIdprod());
+            pst.setString(2, p.getNome());  
+            pst.setDouble(3, p.getPreco());
+            pst.setObject(4, p.getFornecedor().getId());
+            //executar
+            pst.execute();
+            System.out.println("produto inserido");
+            //JOptionPane.showMessageDialog(null,"Fornecedor inserido com sucesso!");
+            conectar.desconectarBD();
+            
+        } catch (SQLException ex) {
+            System.out.println("Erro ao enviar as instruções para SQL "+ex);
+        }
+     }
     
 }

@@ -3,7 +3,10 @@ package model;
 public class Fornecedor {
     //atributos
     private int id;
-    private String nome; 
+    private String nome;
+    private String senha; 
+
+    
     
     //construtor
     
@@ -16,6 +19,15 @@ public class Fornecedor {
         this.id = id;
         this.nome = nome;
     }
+
+    public Fornecedor(int id, String nome, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.senha = senha;
+    }
+    
+    
+    
     
     //gets e sets
     
@@ -36,6 +48,13 @@ public class Fornecedor {
     }
 
     
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
     
     

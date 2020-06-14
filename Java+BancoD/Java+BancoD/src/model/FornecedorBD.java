@@ -31,14 +31,15 @@ public class FornecedorBD {
         conectar.conectarComDB();        
         //preparando a consulta em SQL
         //!!!!O SEGREDO ESTA AQUI!!!!
-        String sql = "insert into fornecedor(idfor, nome) values(?, ?)";
+        String sql = "insert into fornecedor(idfor, nome, senha) values(?, ?, ?)";
         //convertendo String em consulta
         PreparedStatement pst;
         try {
             pst = conectar.conexao.prepareStatement(sql);
             //substituindo os campos em ? ?
             pst.setInt(1, f.getId());
-            pst.setString(2, f.getNome());            
+            pst.setString(2, f.getNome()); 
+            pst.setString(3, f.getSenha());
             //executar
             pst.execute();
             System.out.println("Fornecedor inserido");
@@ -50,23 +51,9 @@ public class FornecedorBD {
         }
      }
      
-     public void excluirFornecedor(Fornecedor f){
-        //conectar com o BD
-        conectar.conectarComDB();
-        String sql = "Delete from Fornecedor where idfor=?";
-        PreparedStatement pst;
-    try {
-        pst = conectar.conexao.prepareStatement(sql);
-        pst.setInt(1, f.getId());
-        //executar
-        pst.execute();
-        JOptionPane.showMessageDialog(null,"Fornecedor apagado da face da Terra!");
-    } catch (SQLException ex) {
-        System.out.println("Algo de errado não está certo! Codigo: "+ex);
-    }
-        
+            
     
-    }
+    
       public void editarFornecedor(Fornecedor f){
         //conecta com BD
         conectar.conectarComDB();
