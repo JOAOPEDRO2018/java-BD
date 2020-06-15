@@ -112,6 +112,19 @@ public class Buscar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
+=======
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rb_produto)
+                    .addComponent(rb_fornecedor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> 0f42a75737919edfaf898e15ac7110b9e71ce59e
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -137,7 +150,11 @@ public class Buscar extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+<<<<<<< HEAD
         setSize(new java.awt.Dimension(392, 262));
+=======
+        setSize(new java.awt.Dimension(422, 282));
+>>>>>>> 0f42a75737919edfaf898e15ac7110b9e71ce59e
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -57,6 +57,15 @@ public class Lista extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaAluno.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tabelaAlunoAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(tabelaAluno);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,6 +88,10 @@ public class Lista extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(426, 309));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabelaAlunoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaAlunoAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaAlunoAncestorAdded
 
     /**
      * @param args the command line arguments
