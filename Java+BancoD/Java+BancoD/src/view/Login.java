@@ -10,7 +10,7 @@ import model.FornecedorBD;
 public class Login extends javax.swing.JFrame {
   Fornecedor fornecedor;
   FornecedorBD forneB;
-  int c;
+  //int c;
     
     public Login() {
         initComponents();
@@ -121,7 +121,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        c = Integer.parseInt(cpf.getText());
+        int c = Integer.parseInt(cpf.getText());
         String s = senha.getText();
         
         fornecedor = new Fornecedor(c, s);
