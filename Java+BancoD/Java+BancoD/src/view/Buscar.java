@@ -111,7 +111,7 @@ public class Buscar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rb_produto)
                     .addComponent(rb_fornecedor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -129,7 +129,7 @@ public class Buscar extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        setSize(new java.awt.Dimension(422, 255));
+        setSize(new java.awt.Dimension(422, 282));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
