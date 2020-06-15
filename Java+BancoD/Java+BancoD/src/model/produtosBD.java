@@ -79,7 +79,7 @@ ConexaoBD conectar = new ConexaoBD();
             pst.setInt(1, p.getIdprod());
             pst.setString(2, p.getNome());  
             pst.setDouble(3, p.getPreco());
-            pst.setObject(4, p.getFornecedor().getId());
+            pst.setInt(4, p.getFornecedor().getCpfRef());
             //executar
             pst.execute();
             System.out.println("produto inserido");

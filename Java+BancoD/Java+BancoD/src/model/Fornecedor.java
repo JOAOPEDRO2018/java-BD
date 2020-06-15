@@ -5,20 +5,32 @@ public class Fornecedor {
     private int id;
     private String nome;
     private String senha; 
+    int CpfRef;
 
     
     
+    
     //construtor
+   
     
-    public Fornecedor(){
-        
+    public Fornecedor(int cpf, String senha){
+        this.id = cpf;
+        this.senha = senha;
+        this.CpfRef = cpf;
         
     }
-    
-    public Fornecedor(int id, String nome){
+
+    public Fornecedor() {
+    }
+
+    public Fornecedor(int id) {
         this.id = id;
-        this.nome = nome;
+        this.CpfRef = id;
     }
+    
+    
+    
+    
 
     public Fornecedor(int id, String nome, String senha) {
         this.id = id;
@@ -30,6 +42,16 @@ public class Fornecedor {
     
     
     //gets e sets
+    public int getCpfRef() {
+        return CpfRef;
+    }
+
+    public void setCpfRef(int CpfRef) {
+        this.CpfRef = id;
+    }
+    
+    
+    
     
     public int getId() {
         return id;

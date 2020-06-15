@@ -136,9 +136,10 @@ public class Buscar extends javax.swing.JFrame {
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
        btn_excluir.setEnabled(true);
        int cpdref = Integer.parseInt(txt_cpf.getText()); 
+       
        comprador = new Fornecedor();
        compradorBD = new FornecedorBD();
-       comprador = compradorBD.buscarFornecedor(cpdref); 
+       compradorBD.buscarFornecedor(comprador); 
        //TextNome.setText(comprador.getNome()); 
        
     }//GEN-LAST:event_btn_buscarActionPerformed

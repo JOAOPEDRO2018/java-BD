@@ -5,7 +5,10 @@ import dots.ConexaoBD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import view.Menu;
 
 /**
  *
@@ -13,6 +16,18 @@ import javax.swing.JOptionPane;
  */
 public class FornecedorBD {
     int idReferencia;
+    boolean logado = false;
+    
+    
+
+    public boolean isLogado() {
+        return logado;
+    }
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
+    }
+    
 
     public int getIdReferencia() {
         return idReferencia;
@@ -75,27 +90,27 @@ public class FornecedorBD {
     }
      
       
-    public Fornecedor buscarFornecedor(int idRef){
+    public void buscarFornecedor(Fornecedor f){
          conectar.conectarComDB();
-         String sql = "select * from fornecedor where idfor = "+idRef;
+         String sql = "select * from fornecedor where idfor = ?";
          PreparedStatement pst; 
-         ResultSet rs;
-         
-         Fornecedor f = new Fornecedor();
+         ResultSet rs;         
+         //Fornecedor f = new Fornecedor();
     try {
+        
         pst = conectar.conexao.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,
                 ResultSet.CONCUR_UPDATABLE);
+        pst.setInt(1, f.getId());
         rs = pst.executeQuery();
         rs.first();
         
         f.setNome(rs.getString("nome"));
         
-        System.out.println("nome: "+f.getNome());
+        JOptionPane.showMessageDialog(null,"'"+f.getNome()+"' Era quem você procurava?");
     } catch (SQLException ex) {
-        System.out.println("erro: "+ex);
+        JOptionPane.showMessageDialog(null,"Fornecedor não cadastrado");
     }
-    
-    return f;
+   
     }
      
      
@@ -116,8 +131,35 @@ public class FornecedorBD {
         
     }
      
-     
-     
+     public void logar(Fornecedor f){
+         
+         boolean logado;
+         conectar.conectarComDB();
+         String sql = "select * from fornecedor where idfor =? and senha =?";
+         PreparedStatement pst;
+         ResultSet rs;
+        try {
+            pst = conectar.conexao.prepareStatement(sql);
+            pst.setInt(1, f.getId());
+            pst.setString(2, f.getSenha());
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                setLogado(true); 
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "usuário e/ou senha errados: ");
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "usuário e/ou senha errados: "+ex);
+        }
+         
+         
+     }
+
      
      
      
