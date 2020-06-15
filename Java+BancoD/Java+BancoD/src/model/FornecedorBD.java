@@ -99,6 +99,23 @@ public class FornecedorBD {
     }
      
      
+    public void excluirFornecedor(Fornecedor p){
+        //conectar com o BD
+        conectar.conectarComDB();
+        String sql = "Delete from fornecedor where idfor=?";
+        PreparedStatement pst;
+    try {
+        pst = conectar.conexao.prepareStatement(sql);
+        pst.setInt(1, p.getId());
+        //executar
+        pst.execute();
+        JOptionPane.showMessageDialog(null,"fornecedor apagado da face da Terra!");
+    } catch (SQLException ex) {
+        System.out.println("Algo de errado não está certo! Codigo: "+ex);
+    }
+        
+    }
+     
      
      
      

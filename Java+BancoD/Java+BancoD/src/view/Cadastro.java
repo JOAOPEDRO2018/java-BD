@@ -28,7 +28,7 @@ public class Cadastro extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        TextCpf = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
@@ -83,7 +83,7 @@ public class Cadastro extends javax.swing.JFrame {
                                 .addComponent(TextNOME)
                                 .addComponent(jTextField1)
                                 .addComponent(jTextField2)
-                                .addComponent(jTextField3))))
+                                .addComponent(TextCpf))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jLabel1)))
@@ -101,7 +101,7 @@ public class Cadastro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(4, 4, 4)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -114,7 +114,7 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(379, 387));
@@ -125,7 +125,7 @@ public class Cadastro extends javax.swing.JFrame {
         //pegar os dados da tela e colocar em variáveis 
         //criar um objeto do tipo aluno
         //enviar para o método cadastrarAluno
-       int id = Integer.parseInt(TextCPD.getText()); 
+       int id = Integer.parseInt(TextCpf.getText()); 
        String nome = TextNOME.getText(); 
        comprador = new Fornecedor(id, nome);
        compCadastro = new FornecedorBD();
@@ -137,13 +137,13 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int id = Integer.parseInt(TextCPD.getText());
-        int idRef = Integer.parseInt(TextCpdReferencia.getText());  
+        int id = Integer.parseInt(TextCpf.getText());
+        
         
         String nome = TextNOME.getText();
         comprador = new Fornecedor(id, nome);
         compCadastro = new FornecedorBD();
-        compCadastro.setIdReferencia(idRef); 
+       
         compCadastro.editarFornecedor(comprador); 
         
         
@@ -187,6 +187,7 @@ public class Cadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextCpf;
     private javax.swing.JTextField TextNOME;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
@@ -198,6 +199,5 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

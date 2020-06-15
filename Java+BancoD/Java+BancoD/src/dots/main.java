@@ -14,6 +14,7 @@ public class main {
          FornecedorBD f = new FornecedorBD();
          Produtos po = new Produtos(10, "carne", 20.0,fo);
          produtosBD p = new produtosBD();
+         f.excluirFornecedor(fo);
          f.cadastrarfornecedor(fo);
          p.addProduto(po);
          

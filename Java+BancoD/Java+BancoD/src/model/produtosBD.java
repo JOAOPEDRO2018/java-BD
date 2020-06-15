@@ -70,7 +70,7 @@ ConexaoBD conectar = new ConexaoBD();
         conectar.conectarComDB();        
         //preparando a consulta em SQL
         //!!!!O SEGREDO ESTA AQUI!!!!
-        String sql = "insert into fornecedor (idpro, nomeprod, preco,fk_Idfor) values(?, ?, ?, ?)";
+        String sql = "insert into produto (idpro, nomeprod, preco,fk_Idfor) values(?, ?, ?, ?)";
         //convertendo String em consulta
         PreparedStatement pst;
         try {
