@@ -27,11 +27,6 @@ public class Fornecedor {
    
     }
   
-        
-    
-    
-    
-
     public Fornecedor(int id, String nome, String senha) {
         this.id = id;
         this.nome = nome;

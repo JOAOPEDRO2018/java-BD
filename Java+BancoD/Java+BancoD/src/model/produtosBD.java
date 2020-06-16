@@ -37,6 +37,7 @@ ConexaoBD conectar = new ConexaoBD();
             Produtos a = new Produtos();
             a.setNome(rs.getString("nomeprod"));
             a.setIdprod(rs.getInt("idpro"));
+            a.setPreco(rs.getDouble("preco"));
             pro.add(a);
             
         }
@@ -84,12 +85,40 @@ ConexaoBD conectar = new ConexaoBD();
             //executar
             pst.execute();
             System.out.println("produto inserido");
-            //JOptionPane.showMessageDialog(null,"Fornecedor inserido com sucesso!");
+            JOptionPane.showMessageDialog(null,"Produto inserido com sucesso!");
             conectar.desconectarBD();
             
         } catch (SQLException ex) {
             System.out.println("Erro ao enviar as instruções para SQL "+ex);
         }
      }
+    
+    public void buscarProduto(Produtos p){
+         conectar.conectarComDB();
+         String sql = "select * from produto where idpro = ?";
+         PreparedStatement pst; 
+         ResultSet rs;         
+         //Fornecedor f = new Fornecedor();
+    try {
+        
+        pst = conectar.conexao.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE);
+        pst.setInt(1, p.getIdprod());
+        rs = pst.executeQuery();
+        rs.first();
+        
+        p.setNome(rs.getString("nomeprod"));
+        
+        JOptionPane.showMessageDialog(null,"'"+p.getNome()+"' Era o que você procurava?");
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null,"produto não cadastrado");
+    }
+   
+    }
+    
+    
+    
+    
+    
     
 }

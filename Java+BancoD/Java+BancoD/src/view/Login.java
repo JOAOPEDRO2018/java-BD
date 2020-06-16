@@ -7,12 +7,15 @@ import java.awt.event.MouseAdapter;
 import model.Fornecedor;
 import model.FornecedorBD;
 
+
 public class Login extends javax.swing.JFrame {
   Fornecedor fornecedor;
   FornecedorBD forneB;
     
     
     public Login() {
+        Menu m = new Menu();
+  m.setVisible(false);
         initComponents();
         label_criarconta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
@@ -34,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         setTitle("Login");
         setResizable(false);
 
-        jLabel1.setText("CPF:");
+        jLabel1.setText("ID:");
 
         jLabel2.setText("Senha:");
 

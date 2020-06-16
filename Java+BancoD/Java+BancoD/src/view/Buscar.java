@@ -2,12 +2,18 @@ package view;
 
 import model.Fornecedor;
 import model.FornecedorBD;
+import model.Produtos;
+import model.produtosBD;
 
 public class Buscar extends javax.swing.JFrame {
 
     
     Fornecedor comprador;
     FornecedorBD compradorBD;
+    Produtos pro;
+    produtosBD proBD;
+    
+    
     public Buscar() {
         initComponents();
         btn_excluir.setEnabled(false);
@@ -49,7 +55,7 @@ public class Buscar extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("CPF Fornecedor:");
+        jLabel2.setText("ID Fornecedor:");
 
         buttonGroup1.add(rb_fornecedor);
         rb_fornecedor.setText("Fornecedor");
@@ -70,6 +76,11 @@ public class Buscar extends javax.swing.JFrame {
         jLabel4.setText("Cod. Produto:");
 
         btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,12 +146,22 @@ public class Buscar extends javax.swing.JFrame {
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
        btn_excluir.setEnabled(true);
-       int cpdref = Integer.parseInt(txt_cpf.getText()); 
        
-       comprador = new Fornecedor();
-       compradorBD = new FornecedorBD();
-       compradorBD.buscarFornecedor(comprador); 
-       //TextNome.setText(comprador.getNome()); 
+       if(rb_fornecedor.isSelected()) {
+            int cpdref = Integer.parseInt(txt_cpf.getText()); 
+            comprador = new Fornecedor(cpdref);
+            compradorBD = new FornecedorBD();
+            compradorBD.buscarFornecedor(comprador); 
+        }
+       
+       else if(rb_produto.isSelected()){
+        int p = Integer.parseInt(txt_prod.getText());   
+        pro = new Produtos(p);
+        proBD = new produtosBD();
+            proBD.buscarProduto(pro);
+       }
+       
+       
        
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -159,6 +180,26 @@ public class Buscar extends javax.swing.JFrame {
             btn_excluir.setEnabled(false);
         }
     }//GEN-LAST:event_rb_produtoActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        
+       if(rb_fornecedor.isSelected()) {
+            int cpdref = Integer.parseInt(txt_cpf.getText()); 
+            comprador = new Fornecedor(cpdref);
+            compradorBD = new FornecedorBD();
+            
+            compradorBD.excluirFornecedor(comprador); 
+        }
+       
+       else if(rb_produto.isSelected()){
+        int p = Integer.parseInt(txt_prod.getText());   
+        pro = new Produtos(p);
+        proBD = new produtosBD();
+            proBD.excluirProduto(pro);
+       }
+       
+
+    }//GEN-LAST:event_btn_excluirActionPerformed
 
     /**
      * @param args the command line arguments

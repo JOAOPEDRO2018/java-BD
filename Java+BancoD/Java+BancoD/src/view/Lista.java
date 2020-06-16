@@ -20,12 +20,13 @@ public class Lista extends javax.swing.JFrame {
         //preencher a tabela
         DefaultTableModel modelo = (DefaultTableModel)tabelaAluno.getModel();
         //criando a Lista
-        List<Produtos> listaCliente = prod.listarProdutos();
-        for (Produtos p: listaCliente){
+        List<Produtos> listapro = prod.listarProdutos();
+        for (Produtos p: listapro){
             modelo.addRow(new Object[]{
-            p.getIdprod(),
+            p.getIdprod(),            
             p.getNome(),
             p.getPreco(),
+            
         });
         }
     }
@@ -46,11 +47,11 @@ public class Lista extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CPD", "Nome"
+                "Id", "Nome", "Valor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

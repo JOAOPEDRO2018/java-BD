@@ -41,7 +41,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         jLabel1.setText("Cadastrar ");
 
-        jLabel3.setText("CPF");
+        jLabel3.setText("ID:");
 
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +144,7 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
         //pegar os dados da tela e colocar em variáveis 
         //criar um objeto do tipo aluno
         //enviar para o método cadastrarAluno
+        
        int id = Integer.parseInt(campoCPF.getText()); 
        String senha = campoSenha.getText(); 
        String nome = campoNome.getText(); 
@@ -153,9 +154,11 @@ public class CadastrarFornecedor extends javax.swing.JFrame {
        fornCadastro = new FornecedorBD();
        fornCadastro.cadastrarfornecedor(forn);
        
-        Menu menu = new Menu();
-        menu.setVisible(true);
-        dispose();
+              
+       
+       Login l = new Login();        
+       l.setVisible(true);
+       dispose();
        
        
        
