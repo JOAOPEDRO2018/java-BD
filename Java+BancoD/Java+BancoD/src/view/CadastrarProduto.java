@@ -17,7 +17,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     Produtos produto;
     produtosBD produtoBD;
     Fornecedor f;
-   // Login var;
+ 
     
     public CadastrarProduto() {
         initComponents();
@@ -104,9 +104,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addComponent(codProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(Pronome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Preproduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,9 +124,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         int cod = Integer.parseInt(codProduto.getText());
         String nome = Pronome.getText();
         double preco = Double.parseDouble(Preproduto.getText());
-        //int t = var.c; 
-        f = new Fornecedor();
-        //int x = f.getId();
+        //f = new Fornecedor();//??
         produto = new Produtos(cod, nome, preco, f);
         produtoBD = new produtosBD();
         
